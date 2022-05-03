@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6693298577708067187}
   - component: {fileID: 6775418956614737774}
   m_Layer: 0
-  m_Name: player
+  m_Name: resplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9e75ab76d64d04083ee0d22e68bf81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  animator: {fileID: 0}
+  moveSpeed: 0.01
+  rb: {fileID: 0}
 --- !u!1839735485 &6693298579589826283
 Tilemap:
   m_ObjectHideFlags: 0
