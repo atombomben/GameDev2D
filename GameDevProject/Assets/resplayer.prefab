@@ -100,11 +100,7 @@ GameObject:
   - component: {fileID: 6693298577708067187}
   - component: {fileID: 6775418956614737774}
   m_Layer: 0
-<<<<<<< HEAD:GameDevProject/Assets/resplayer.prefab
   m_Name: resplayer
-=======
-  m_Name: player1
->>>>>>> origin/Player:GameDevProject/Assets/player1.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
