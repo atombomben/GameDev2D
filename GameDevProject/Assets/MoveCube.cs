@@ -46,7 +46,7 @@ void Flip ()
        animator.SetFloat("Horizontal", xDirection);
        animator.SetFloat("Vertical",zDirection);
       
-
+ 
      
 
 
