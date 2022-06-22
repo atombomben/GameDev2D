@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484711266787940888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -0.1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 976115491959946400}
   m_RootOrder: 0
@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 205356233752708839}
   - component: {fileID: 205356233752708836}
   - component: {fileID: 205356233752708837}
-  - component: {fileID: 205356233752708834}
   - component: {fileID: 2314397850695929408}
   - component: {fileID: 857140193509045754}
+  - component: {fileID: 6146893803182447816}
+  - component: {fileID: 3798112964279407989}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1036657990279651352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7556001072856187330}
   m_Father: {fileID: 0}
@@ -138,7 +139,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &205356233752708837
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,31 +153,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0.08001375, y: -0.07852495}
+  m_Size: {x: 0.39189243, y: 0.64793754}
   m_Direction: 0
---- !u!114 &205356233752708834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036657990279651352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e68e23dff411824c9037dbd2e443ce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 2314397850695929408}
-  spriteRenderer: {fileID: 205356233752708839}
-  center: {fileID: 0}
-  axis: {x: 0, y: 0, z: 1}
-  radius: 6
-  radiusSpeed: 1
-  rotationSpeed: 60
-  speed: 4
-  attackRange: 6
-  attackScript: {fileID: 857140193509045754}
 --- !u!95 &2314397850695929408
 Animator:
   serializedVersion: 3
@@ -211,7 +190,53 @@ MonoBehaviour:
   animator: {fileID: 2314397850695929408}
   arrow: {fileID: 3006133467133217714, guid: 54ccc971c0230734883e0017e614659c, type: 3}
   player: {fileID: 0}
-  launchForce: 0
+  launchForce: 5
   shotPoint: {fileID: 7556001072856187330}
-  shotCooldown: 0
-  attackRange: 0
+  shotCooldown: 1
+  attackRange: 10
+--- !u!114 &6146893803182447816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036657990279651352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072ef60c9893cd049a7565e395fa0a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {fileID: 0}
+  speed: 2
+  maxDistToWaypoint: 3
+  reachedEndOfPath: 0
+  repathRate: 0.5
+  attackScript: {fileID: 857140193509045754}
+--- !u!114 &3798112964279407989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036657990279651352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
