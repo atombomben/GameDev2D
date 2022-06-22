@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
     public Transform center;
     public Vector3 axis;
     public float radius = 2.0f;
@@ -15,6 +17,8 @@ public class Movement : MonoBehaviour
     public Attack attackScript;
     
     private void Orbit() {
+        spriteRenderer.flipX = center.position.x < transform.position.x;
+        
         transform.RotateAround (center.position, axis, rotationSpeed * Time.deltaTime);
         var desiredPosition = (transform.position - center.position).normalized * radius + center.position;
         transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);
@@ -34,6 +38,7 @@ public class Movement : MonoBehaviour
     }
 
     public void FixedUpdate() {
+        animator.SetFloat("speed", rotationSpeed);
         Orbit();
     }
 }

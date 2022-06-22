@@ -4,28 +4,36 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public Animator animator;
     public GameObject arrow;
     public Transform player;
     public float launchForce;
     public Transform shotPoint;
     private float currentCooldown;
     public float shotCooldown;
+    public float attackRange;
 
     // Start is called before the first frame update
     void Start()
     {
+        attackRange = 10f;
         currentCooldown = shotCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentCooldown <= 0){
-            Shoot();
-            currentCooldown = shotCooldown;
-        } else {
-            currentCooldown -= Time.deltaTime;
+        if(Vector2.Distance(transform.position, player.transform.position) < attackRange)
+        {
+            if(currentCooldown <= 0){
+                animator.SetBool("inRange", true);
+                Shoot();
+                currentCooldown = shotCooldown;
+            } else {
+                currentCooldown -= Time.deltaTime;
+            }
         }
+        
     }
 
     public void Shoot(){
