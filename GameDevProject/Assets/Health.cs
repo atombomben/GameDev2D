@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
@@ -29,12 +30,17 @@ public class Health : MonoBehaviour
     {
         curentHealth -= damage;
         // Play hurt animaiton
+       
 
         animaitor.SetTrigger("Hurt");
+
+        healthAmount -= damage;
+        healthBar.fillAmount = healthAmount / 100;
 
         if(curentHealth <=0)
         {
             Die();
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -52,26 +58,23 @@ public class Health : MonoBehaviour
 
     }
 
-/*
+
     private void Update()
     {
      
 
-     if(Input.GetKeyDown(KeyCode.Q))
-    {
-        TakeDamage(20);
-    }
+    
      if(Input.GetKeyDown(KeyCode.E))
     {
         Healing(10);
     }
- }*/
+ }
 /*
-    public void TakeDamage(int Damage)
+    public void TakeDamage1(int Damage)
     {
         healthAmount -= Damage;
         healthBar.fillAmount = healthAmount / 100;
-    }
+    }*/
    
     public void Healing(float healPoints)
     {
@@ -80,5 +83,5 @@ public class Health : MonoBehaviour
         
         healthBar.fillAmount = healthAmount / 100;
 
-    }*/
+    }
 }
