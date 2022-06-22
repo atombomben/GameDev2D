@@ -16,6 +16,7 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("player").transform;
         attackRange = 10f;
         shotCooldown = 0f;
         launchForce = 3f;

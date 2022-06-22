@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     }
 
     public void Start() {
+        center = GameObject.Find("player").transform;
         //transform.position = (transform.position - center.position).normalized * radius + center.position;
     }
     
