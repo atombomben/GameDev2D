@@ -4,9 +4,55 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
+
+    public Animator animaitor;
     public Image healthBar;
     public float healthAmount = 100;
 
+
+    public int maxHealth = 100;
+    int curentHealth;
+
+    void Start()
+    {
+        curentHealth = maxHealth;
+    }
+
+
+     private void Awake()
+    {
+        animaitor = GetComponent<Animator>();
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        curentHealth -= damage;
+        // Play hurt animaiton
+
+        animaitor.SetTrigger("Hurt");
+
+        if(curentHealth <=0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Enemy died!");
+
+        // play Die animation
+        animaitor.SetBool("IsDead", true);
+
+        // disable enemy
+
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false; 
+
+    }
+
+/*
     private void Update()
     {
      
@@ -19,9 +65,9 @@ public class Health : MonoBehaviour
     {
         Healing(10);
     }
- }
-
-    public void TakeDamage(float Damage)
+ }*/
+/*
+    public void TakeDamage(int Damage)
     {
         healthAmount -= Damage;
         healthBar.fillAmount = healthAmount / 100;
@@ -34,5 +80,5 @@ public class Health : MonoBehaviour
         
         healthBar.fillAmount = healthAmount / 100;
 
-    }
+    }*/
 }

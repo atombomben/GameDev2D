@@ -7,18 +7,15 @@ public class Enemy : MonoBehaviour
 
     public Animator animaitor;
 [SerializeField] private float attackCooldown;
-//[SerializeField] private int damage;
-//[SerializeField] private float range;
-//[SerializeField] private float colliderDistance;
-//[SerializeField] private BoxCollider2D boxCollder;
-
-public Transform attackPoint;
-public float attackRange = 0.5f;
-public float attackRate  = 2f;
-float nextAttackTime = 0f;
+[SerializeField] private int attackDamage = 40;
+[SerializeField] private float range;
+[SerializeField] private float colliderDistance;
+[SerializeField] private BoxCollider2D boxCollder;
 [SerializeField] private LayerMask playerLayer;
 private float cooldownTimer = Mathf.Infinity;
-public int attackDamage = 40;
+private Health playerHealth;
+private float nextAttackTime;
+
 
 
     public int maxHealth = 100;
@@ -37,9 +34,10 @@ public int attackDamage = 40;
 
     private void Update()
     {
-        //Attack only when player is in range
+        
         cooldownTimer += Time.deltaTime;
 
+        //Attack only when player is in range
         if (PlayerInSight())
         {
              if (cooldownTimer >= attackCooldown)
@@ -51,7 +49,7 @@ public int attackDamage = 40;
         }
     }
 
-        bool PlayerInSight()
+        /*bool PlayerInSight()
        {
          Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
           foreach(Collider2D player in hitPlayer)
@@ -59,43 +57,54 @@ public int attackDamage = 40;
            Debug.Log("Hit" + player.name);
         }
         return true;
-         
-      
-
-       }
+       }*/
 
 
 
-       void OnDrawGizmosSelected()
+       /*void OnDrawGizmosSelected()
        {
         if (attackPoint == null)
         return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-       }
-    /*private bool PlayerInSight()
+       }*/
+
+
+
+    private bool PlayerInSight()
         {
             RaycastHit2D hit = Physics2D.BoxCast(boxCollder.bounds.center + transform.right * range * transform.localScale.x* colliderDistance,
              new Vector3(boxCollder.bounds.size.x * range, boxCollder.bounds.size.y, boxCollder.bounds.size.z),
               0, Vector2.left, 0, playerLayer);
+              //need fix
+              if(hit.collider !=null)
+              if(Time.time > nextAttackTime)
+              {
+                  hit.transform.GetComponent<Health>().TakeDamage(attackDamage);
+              Debug.Log("ihit");
+              //playerHealth = hit.transform.GetComponent<Health>().TakeDamage(damage);
+              float attackRate = 0.8f;
+              nextAttackTime = Time.time + attackRate;
+              }
+            
             return hit.collider != null;
-        }*/
+        }
 
 
-     /*private void OnDrawGizmos()
+     private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(boxCollder.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
              new Vector3(boxCollder.bounds.size.x * range, boxCollder.bounds.size.y, boxCollder.bounds.size.z));
+        }
+
+
+       /* private void DamagePlayer()
+        {
+            if(PlayerInSight())
+            {
+                playerHealth.TakeDamage(attackDamage);
+            }
         }*/
-
-
-
-
-
-
-
-    
-
 
     public void TakeDamage(int damage)
     {
