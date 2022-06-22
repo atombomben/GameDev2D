@@ -17,6 +17,8 @@ public class Attack : MonoBehaviour
     void Start()
     {
         attackRange = 10f;
+        shotCooldown = 0f;
+        launchForce = 3f;
         currentCooldown = shotCooldown;
     }
 
