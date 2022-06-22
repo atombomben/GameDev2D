@@ -4,8 +4,7 @@
 AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: HeavyBandit_Attack
   serializedVersion: 6
   m_Legacy: 0
@@ -26,11 +25,11 @@ AnimationClip:
     - time: 0.2
       value: {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - time: 0.3
-      value: {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+      value: {fileID: 21300038, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - time: 0.4
-      value: {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+      value: {fileID: 21300040, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - time: 0.5
-      value: {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+      value: {fileID: 21300042, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - time: 0.6
       value: {fileID: 21300044, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - time: 0.70000005
@@ -57,9 +56,9 @@ AnimationClip:
     - {fileID: 21300032, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - {fileID: 21300034, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
-    - {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
-    - {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
-    - {fileID: 21300036, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+    - {fileID: 21300038, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+    - {fileID: 21300040, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+    - {fileID: 21300042, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - {fileID: 21300044, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
     - {fileID: 21300046, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
   m_AnimationClipSettings:
@@ -86,4 +85,5 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
   m_Events: []

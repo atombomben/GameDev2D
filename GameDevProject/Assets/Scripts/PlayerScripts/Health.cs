@@ -40,8 +40,16 @@ public class Health : MonoBehaviour
         if(curentHealth <=0)
         {
             Die();
-            SceneManager.LoadScene(2);
+            StartCoroutine(SleepTimer());
+            
         }
+    }
+
+    IEnumerator SleepTimer() {
+
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(2);
+
     }
 
     public void Die()

@@ -28,7 +28,6 @@ void FixedUpdate()
         else if(h < 0 && facingRight)
             Flip();
      }
-
 void Flip ()
     {
         facingRight = !facingRight;
